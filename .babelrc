@@ -1,0 +1,12 @@
+{
+  "presets": [
+      "@babel/preset-env"
+  ],
+  "plugins": [
+      "@babel/plugin-proposal-object-rest-spread",
+      "@babel/plugin-transform-runtime",
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-syntax-class-properties"
+  ]
+}
+//必須要取babelrc 才會取到這個檔案

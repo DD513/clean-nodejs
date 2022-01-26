@@ -1,0 +1,11 @@
+require('@babel/register');
+
+const path = require('path');
+
+// 更換路徑
+module.exports = {
+  'config': path.resolve('./src/config/config.js'),
+  'migrations-path': path.resolve('./src/databases/migrations/'),
+  'models-path': path.resolve('./src/models/'),
+  'seeders-path': path.resolve('./src/databases/seeders/'),
+}
