@@ -1,4 +1,4 @@
-import { DATE, QueryTypes } from "sequelize";
+import { DATE, QueryTypes, Model } from "sequelize";
 import user from "../middlewares/user";
 import models from "../models/index";
 import PasswordService from "./password";

@@ -3,6 +3,7 @@ import path from "path";
 import Sequelize from "sequelize";
 import _ from "lodash";
 import config from "../config/config";
+import { users } from "../models";
 
 require("dotenv").config();
 
@@ -29,6 +30,8 @@ fs.readdirSync(__dirname)
     db[model.name] = model;
   });
 
+console.log("123123", db);
+
 Object.keys(db).forEach((modelName) => {
   if (db[modelName].associate) {
     db[modelName].associate(db);
@@ -36,5 +39,6 @@ Object.keys(db).forEach((modelName) => {
 });
 
 db.sequelize = sequelize;
+db.Sequelize = sequelize;
 
 export default db;
