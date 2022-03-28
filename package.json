@@ -144,7 +144,6 @@
     "fs-minipass": "^2.1.0",
     "fs-readdir-recursive": "^1.1.0",
     "fs.realpath": "^1.0.0",
-    "fsevents": "^2.3.2",
     "function-bind": "^1.1.1",
     "functional-red-black-tree": "^1.0.1",
     "gauge": "^3.0.2",
