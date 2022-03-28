@@ -437,7 +437,7 @@
     "yargs-parser": "^13.1.2"
   },
   "scripts": {
-    "start": "npx --exec babel-node src/app.js",
+    "start": "babel-node src/app.js",
     "db:create": "npx sequelize db:create",
     "db:migrate": "npx sequelize db:migrate",
     "db:drop": "npx sequelize db:drop",
