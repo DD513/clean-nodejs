@@ -34,7 +34,7 @@ app.use("/api", index); // 後面要建立到routus/index.js才能使用
 
 const server = http.createServer(app);
 
-server.listen(3000);
+server.listen(process.env.APP_PORT || 3000);
 
 server.on("listening", () => {
   const addr = server.address();
