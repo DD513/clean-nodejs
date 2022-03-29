@@ -70,6 +70,7 @@
     "convert-source-map": "^1.8.0",
     "cookie": "^0.4.1",
     "cookie-parser": "^1.4.6",
+    "cookie-session": "^2.0.0",
     "cookie-signature": "^1.0.6",
     "core-js": "^3.20.3",
     "core-js-compat": "^3.20.3",

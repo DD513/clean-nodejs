@@ -5,7 +5,7 @@ import path from "path";
 import cors from "cors";
 import morgan from "morgan";
 import passport from "passport";
-import session from "express-session";
+import session from "cookie-session";
 import index from "./routes/index"; // 用來 存放route的接口
 import "dotenv/config";
 // require("dotenv").config();
