@@ -3,7 +3,7 @@ require("dotenv").config();
 const env = {
   Env: process.env.APP_ENV,
   Host: process.env.APP_HOST,
-  Port: process.env.APP_PORT,
+  Port: process.env.PORT,
   AppKey: process.env.APP_KEY,
   DatabaseHost: process.env.DB_HOST,
   DatabasePort: process.env.DB_PORT,
