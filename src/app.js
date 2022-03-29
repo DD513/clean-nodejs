@@ -33,7 +33,7 @@ app.use(passport.session());
 app.use("/api", index); // 後面要建立到routus/index.js才能使用
 
 const server = http.createServer(app);
-const port = process.env.PORT || 3000;
+const port = process.env.APP_PORT || 3000;
 
 server.listen(port, () => {
   console.log("App is running on port " + port);
