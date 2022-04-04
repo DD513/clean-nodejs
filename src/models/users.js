@@ -33,6 +33,7 @@ export default (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "users",
+      timestamps: true,
       freezeTableName: true,
     }
   );

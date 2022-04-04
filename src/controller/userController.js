@@ -6,7 +6,6 @@ import AuthenticateService from "../services/authenticate";
 class UserController {
   postUser = async (req, res) => {
     const { body } = req;
-    console.log(body);
     try {
       const existUser = await UserService.checkExistUser(body);
       if (existUser) {
