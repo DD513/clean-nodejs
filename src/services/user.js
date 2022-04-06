@@ -23,6 +23,19 @@ class UserService {
     return user;
   };
 
+  // 取得使用者個人資料
+  getUserById = async (id) => {
+    const user = await users.findOne({
+      where: {
+        id,
+      },
+      attributes: {
+        exclude: ["password", "verificationCode"],
+      },
+    });
+    return user;
+  };
+
   //  判斷該信箱有無使用過
   checkExistUser = async (body) => {
     const { email } = body;

@@ -17,4 +17,7 @@ router.patch("/", UserMiddleware.jwtAuthenticate, UserController.editUser);
 // 需要token才能刪除資料
 router.delete("/", UserMiddleware.jwtAuthenticate, UserController.deleteUser);
 
+// 取得登入者資料
+router.get("/", UserMiddleware.jwtAuthenticate, UserController.getUser);
+
 export default router;

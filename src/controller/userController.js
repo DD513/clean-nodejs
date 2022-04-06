@@ -4,6 +4,16 @@ import UserService from "../services/user";
 import AuthenticateService from "../services/authenticate";
 
 class UserController {
+  getUser = async (req, res) => {
+    try {
+      const { id } = req;
+      const user = await UserService.getUserById(id);
+      res.status(200).json({ user });
+    } catch {
+      res.status(400).json({ message: "沒有使用者" });
+    }
+  };
+
   postUser = async (req, res) => {
     const { body } = req;
     try {
