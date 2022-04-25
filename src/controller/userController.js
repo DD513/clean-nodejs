@@ -31,18 +31,23 @@ class UserController {
 
   //修改使用者資料
   editUser = async (req, res) => {
-    const { id, body } = req;
-    const { name, email } = body;
-    const existUser = await UserService.getUserByEmail(email);
-    if (existUser && existUser.id !== id)
-      return res.status(400).json({ message: "該信箱已被使用" });
-    // 修改信箱
-    if (!existUser) {
-      await UserService.editUserEmail(id, email);
+    try {
+      const { id, body, file } = req;
+      const { name, email } = body;
+      const existUser = await UserService.getUserByEmail(email);
+      if (existUser && existUser.id !== id)
+        return res.status(400).json({ message: "該信箱已被使用" });
+      // 修改信箱
+      if (!existUser) {
+        await UserService.editUserEmail(id, email);
+      }
+      // 修改使用者的資料
+      UserService.editUser(id, name, file === "" ? "" : file.path);
+
+      res.status(200).json({ message: "修改成功" });
+    } catch {
+      res.status(400).json({ message: "修改失敗" });
     }
-    // 修改使用者的資料
-    await UserService.editUser(id, name);
-    res.status(200).json({ message: "修改成功" });
   };
 
   deleteUser = async (req, res) => {

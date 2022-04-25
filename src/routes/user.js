@@ -1,6 +1,7 @@
 import { Router } from "express";
 import UserController from "../controller/userController";
 import UserMiddleware from "../middlewares/user";
+import FileMiddleware from "../middlewares/file";
 
 const router = Router();
 
@@ -12,7 +13,13 @@ router.post("/", UserMiddleware.Authenticate);
 router.post("/register", UserController.postUser);
 
 // 修該使用者資料
-router.patch("/", UserMiddleware.jwtAuthenticate, UserController.editUser);
+router.patch(
+  "/",
+  UserMiddleware.jwtAuthenticate,
+  FileMiddleware.upload.single("images"),
+  FileMiddleware.handleError,
+  UserController.editUser
+);
 
 // 需要token才能刪除資料
 router.delete("/", UserMiddleware.jwtAuthenticate, UserController.deleteUser);
