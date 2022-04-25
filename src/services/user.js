@@ -71,10 +71,11 @@ class UserService {
    * @param {string} name
    * @returns {void}
    */
-  editUser = async (id, name) => {
+  editUser = async (id, name, images) => {
     await users.update(
       {
         name,
+        images,
       },
       {
         where: {
