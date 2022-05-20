@@ -1,3 +1,4 @@
+import _ from "lodash";
 import { DATE, QueryTypes, Model } from "sequelize";
 import user from "../middlewares/user";
 import models from "../models/index";
@@ -71,11 +72,13 @@ class UserService {
    * @param {string} name
    * @returns {void}
    */
-  editUser = async (id, name, images) => {
+  editUser = async (id, name, file) => {
     await users.update(
       {
         name,
-        images,
+        images: _.isUndefined(file)
+          ? null
+          : `/static/images/avator/${file.filename}`,
       },
       {
         where: {

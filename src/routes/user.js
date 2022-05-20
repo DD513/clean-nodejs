@@ -1,7 +1,7 @@
 import { Router } from "express";
 import UserController from "../controller/userController";
 import UserMiddleware from "../middlewares/user";
-import FileMiddleware from "../middlewares/file";
+import AvatorMiddleware from "../middlewares/avator";
 
 const router = Router();
 
@@ -16,8 +16,8 @@ router.post("/register", UserController.postUser);
 router.patch(
   "/",
   UserMiddleware.jwtAuthenticate,
-  FileMiddleware.upload.single("images"),
-  FileMiddleware.handleError,
+  AvatorMiddleware.upload.single("images"),
+  AvatorMiddleware.handleError,
   UserController.editUser
 );
 

@@ -8,11 +8,11 @@ import { v4 as uuidv4 } from "uuid";
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     if (
-      !fs.existsSync(path.resolve(__dirname, "../../storage/images/userImage"))
+      !fs.existsSync(path.resolve(__dirname, "../../storage/images/avator"))
     ) {
-      fs.mkdirSync(path.resolve(__dirname, "../../storage/images/userImage"));
+      fs.mkdirSync(path.resolve(__dirname, "../../storage/images/avator"));
     }
-    cb(null, path.resolve(__dirname, "../../storage/images/userImage"));
+    cb(null, path.resolve(__dirname, "../../storage/images/avator"));
   },
   filename: (req, file, cb) => {
     const { originalname, mimetype } = file;
@@ -32,7 +32,7 @@ const storage = multer.diskStorage({
   },
 });
 
-class FileMiddleware {
+class AvatorMiddleware {
   upload = multer({ storage });
   handleError = (error, req, res, next) => {
     if (error) {
@@ -50,4 +50,4 @@ class FileMiddleware {
   };
 }
 
-export default new FileMiddleware();
+export default new AvatorMiddleware();
