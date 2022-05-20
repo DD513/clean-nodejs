@@ -1,4 +1,5 @@
 import _ from "lodash";
+import { async } from "regenerator-runtime";
 import { DATE, QueryTypes, Model } from "sequelize";
 import user from "../middlewares/user";
 import models from "../models/index";
@@ -66,19 +67,31 @@ class UserService {
     );
   };
 
+  editUserAvator = async (id, file) => {
+    await users.update(
+      {
+        images: _.isUndefined(file)
+          ? null
+          : `/static/images/avator/${file.filename}`,
+      },
+      {
+        where: {
+          id,
+        },
+      }
+    );
+  };
+
   /** 更改使用者
    *
    * @param {string} id
    * @param {string} name
    * @returns {void}
    */
-  editUser = async (id, name, file) => {
+  editUser = async (id, name) => {
     await users.update(
       {
         name,
-        images: _.isUndefined(file)
-          ? null
-          : `/static/images/avator/${file.filename}`,
       },
       {
         where: {
