@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
   filename: (req, file, cb) => {
     const { originalname, mimetype } = file;
     // 只接受三種圖片格式
-    if (!file.originalname.match(/\.(jpg|jpeg|png)$/)) {
+    if (!file.originalname.match(/\.(jpg|jpeg|png|JPG|JPEG|PNG)$/)) {
       cb({ status: 400, message: "頭貼只接受 PNG、JPG、JPEG 類型的檔案" });
     }
     // if (
