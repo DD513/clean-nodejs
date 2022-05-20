@@ -16,6 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParse());
 app.use(express.static(path.resolve(__dirname, "../view")));
+app.use(express.static(path.resolve(__dirname, "../storage")));
 app.use(morgan("dev"));
 app.use(cors());
 

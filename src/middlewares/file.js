@@ -7,10 +7,12 @@ import { v4 as uuidv4 } from "uuid";
 // const storage = multer.memoryStorage();
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    if (!fs.existsSync(path.resolve(__dirname, "../../storage"))) {
-      fs.mkdirSync(path.resolve(__dirname, "../../storage"));
+    if (
+      !fs.existsSync(path.resolve(__dirname, "../../storage/images/userImage"))
+    ) {
+      fs.mkdirSync(path.resolve(__dirname, "../../storage/images/userImage"));
     }
-    cb(null, path.resolve(__dirname, "../../storage"));
+    cb(null, path.resolve(__dirname, "../../storage/images/userImage"));
   },
   filename: (req, file, cb) => {
     const { originalname, mimetype } = file;

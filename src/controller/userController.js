@@ -32,6 +32,7 @@ class UserController {
   //修改使用者資料
   editUser = async (req, res) => {
     try {
+      console.log("file", req.file);
       const { id, body, file } = req;
       const { name, email } = body;
       const existUser = await UserService.getUserByEmail(email);
@@ -42,7 +43,7 @@ class UserController {
         await UserService.editUserEmail(id, email);
       }
       // 修改使用者的資料
-      UserService.editUser(id, name, file === "" ? "" : file.path);
+      UserService.editUser(id, name, _.isUndefined(file) ? null : file.path);
 
       res.status(200).json({ message: "修改成功" });
     } catch {
